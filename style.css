@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+:root {
+  /* use these variables anywhere */
+  --success-color: green;
+  --error-color: red;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: gainsboro;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* viewport height unit */
+  min-height: 100vh;
+  margin: 0;
+}
+.container {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  width: 400px;
+}
+.hh {
+  text-align: center;
+  margin: 0 0 20px;
+}
+.form {
+  padding: 30px 40px;
+}
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  /* error msg will be positioned absolute therefore parent element has to be relative */
+  position: relative;
+}
+.form-control label {
+  color: #777;
+  /* by default inline change to block now they go on their own line and knock the net elemetn down  */
+  display: block;
+  margin-bottom: 5px;
+}
+.form-control input {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+/* getting rid of online around input  */
+.form-control input:focus {
+  outline: 0;
+  border-color: #777;
+  /* no outine */
+}
+/* error then red else green */
+.form-control.success input {
+  /* border-color: greenyellow; */
+  border-color: var(--success-color);
+}
+.form-control.error input {
+  border-color: var(--error-color);
+}
+.form-control small {
+  color: var(--error-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* initially hidden     */
+  visibility: hidden;
+  /* display: none; is different */
+}
+/* when some input is wrong we want to add error class and display error message  */
+.form-control.error small {
+  visibility: visible;
+}
+.form button {
+  cursor: pointer;
+  background-color: #3498db;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  color: white;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
